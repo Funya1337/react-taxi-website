@@ -1,21 +1,19 @@
 import React from 'react';
-import Analytics from './components/Analytics';
-import Cards from './components/Cards';
-import Footer from './components/Footer';
-import Hero from './components/Hero';
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
+import Conditions from './pages/Conditions';
+import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import Newsletter from './components/Newsletter';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Hero />
-      <Analytics />
-      <Newsletter />
-      <Cards />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path='/' exact element={<Home/>}/>
+        <Route path='/conditions' exact element={<Conditions/>}/>
+      </Routes>
+    </Router>
   );
 }
 

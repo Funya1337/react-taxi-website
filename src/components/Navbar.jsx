@@ -10,10 +10,10 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
-      <button><h1 className='w-full text-3xl font-bold text-[#00df9a]'>RUSSO.</h1></button>
+      <button onClick={() => {window.location = '/'}}><h1 className='w-full text-3xl font-bold text-[#00df9a]'>RUSSO.</h1></button>
       <ul className='hidden md:flex'>
-        <button className='p-4 font-bold'>Главная</button>
-        <button className='p-4 font-bold'>Условия</button>
+        <button className='p-4 font-bold' onClick={() => {window.location = '/'}}>Главная</button>
+        <button className='p-4 font-bold' onClick={() => {window.location = '/conditions'}}>Условия</button>
         <button className='p-4 font-bold'>Блог</button>
         <button className='p-4 font-bold'>О нас</button>
         <button className='p-4 font-bold'>Вопрос/Ответ</button>
