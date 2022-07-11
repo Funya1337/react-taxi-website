@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Newsletter = () => {
+
+  const url = ''
+  const [data, setData] = useState({
+    email: ""
+  })
+
+  const handle = (e) => {
+    console.log(e)
+  }
+
   return (
     <div className='w-full py-16 text-white px-4'>
       <div className='max-w-[1240px] mx-auto grid lg:grid-cols-3'>
@@ -13,6 +23,9 @@ const Newsletter = () => {
         <div className='my-4'>
           <div className='flex flex-col sm:flex-row items-center justify-between w-full'>
             <input
+              onChange={(e) => handle(e)}
+              id="email"
+              value={data.email}
               className='p-3 flex w-full rounded-md text-black'
               type='email'
               placeholder='Введите Email'
