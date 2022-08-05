@@ -13,53 +13,27 @@ const Footer = () => {
     <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
       <div>
         <img src={Logo}/>
-        <p className='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id odit ullam iste repellat consequatur libero reiciendis, blanditiis accusantium.</p>
-        <div className='flex justify-between md:w-[75%] my-6'>
-            <FaFacebookSquare size={30} />
-            <FaInstagram size={30} />
-            <FaTwitterSquare size={30} />
-            <FaGithubSquare size={30} />
-            <FaDribbbleSquare size={30} />
-        </div>
       </div>
-      <div className='lg:col-span-2 flex justify-between mt-6'>
+      <div className='lg:col-span-1 flex justify-between mt-6'>
     <div>
-        <h6 className='font-medium text-gray-400'>Solutions</h6>
+        <h6 className='font-medium text-gray-400'>Контакты</h6>
         <ul>
-            <li className='py-2 text-sm'>Analytics</li>
-            <li className='py-2 text-sm'>Marketing</li>
-            <li className='py-2 text-sm'>Commerce</li>
-            <li className='py-2 text-sm'>Insights</li>
+            <li className='py-2 text-sm'>Адрес:</li> МО, г. Люберцы, ул. Кирова <br/> (116 квартал), д. 20А, офис 2
+            <li className='py-2 text-sm'>Часы работы: <span style={{color: 'green'}}>c 09-00 до 21-00</span></li>
+            <li className='py-2 text-sm'>Почта: <span style={{color: 'green'}}>russo2220414@yandex.ru</span></li>
+            <li className='py-2 text-sm'>Телефон: <span style={{color: 'green'}}>89672220414</span></li>
         </ul>
     </div>
     <div>
-        <h6 className='font-medium text-gray-400'>Support</h6>
+        <h6 className='font-medium text-gray-400'>Таксопарк</h6>
         <ul>
-            <li className='py-2 text-sm'>Pricing</li>
-            <li className='py-2 text-sm'>Documentation</li>
-            <li className='py-2 text-sm'>Guides</li>
-            <li className='py-2 text-sm'>API Status</li>
+            <a href="#"><li className='py-2 text-sm'>Главная</li></a>
+            <a href="#"><li className='py-2 text-sm'>Условия</li></a>
+            <a href="#"><li className='py-2 text-sm'>Блог</li></a>
+            <a href="#"><li className='py-2 text-sm'>О нас</li></a>
         </ul>
     </div>
-    <div>
-        <h6 className='font-medium text-gray-400'>Company</h6>
-        <ul>
-            <li className='py-2 text-sm'>About</li>
-            <li className='py-2 text-sm'>Blog</li>
-            <li className='py-2 text-sm'>Jobs</li>
-            <li className='py-2 text-sm'>Press</li>
-            <li className='py-2 text-sm'>Careers</li>
-        </ul>
     </div>
-    <div>
-        <h6 className='font-medium text-gray-400'>Legal</h6>
-        <ul>
-            <li className='py-2 text-sm'>Claim</li>
-            <li className='py-2 text-sm'>Policy</li>
-            <li className='py-2 text-sm'>Terms</li>
-        </ul>
-    </div>
-      </div>
     </div>
   );
 };

@@ -9,6 +9,7 @@ const Newsletter = () => {
 
   const handle = (e) => {
     console.log(e)
+    console.log(data.email)
   }
 
   return (
@@ -27,7 +28,7 @@ const Newsletter = () => {
               id="email"
               value={data.email}
               className='p-3 flex w-full rounded-md text-black'
-              type='email'
+              type='text'
               placeholder='Введите Email'
             />
             <button className='bg-[#00df9a] text-black rounded-md font-medium w-[200px] ml-4 my-6 px-6 py-3'>
