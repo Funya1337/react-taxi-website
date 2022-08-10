@@ -1,14 +1,56 @@
-import React from 'react'
 import Box from '@mui/material/Box';
+import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import axios from 'axios'
 
-const TextForm = (props) => {
+const TextForm = () => {
 
-  const test = () => {
-    console.log(props)
+  const url = '/api/data'
+  const [data, setData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    city: "",
+    carNumber: "",
+    carDateStart: "",
+    carDateEnd: "",
+    carBrand: "",
+    carModel: "",
+    carColor: "",
+    carGosNumber: "",
+    CarReleaseDate: ""
+  })
+
+  const handle = (e) => {
+    const newData = {...data}
+    console.log(newData)
+    newData[e.target.id] = e.target.value
+    setData(newData)
+    console.log(newData)
+  }
+
+  const submitData = (e) => {
+    axios.post(url, {
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      city: data.city,
+      carNumber: data.carNumber,
+      carDateStart: data.carDateStart,
+      carDateEnd: data.carDateEnd,
+      carBrand: data.carBrand,
+      carModel: data.carModel,
+      carColor: data.carColor,
+      carGosNumber: data.carGosNumber,
+      CarReleaseDate: data.CarReleaseDate
+    })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err))
   }
 
   return (
@@ -20,24 +62,24 @@ const TextForm = (props) => {
     noValidate
     autoComplete="off"
   >
-    <TextField id="standard-basic" onChange={test} label="Ваше ФИО" variant="standard" />
-    <TextField id="standard-basic" label="Телефон" variant="standard" />
-    <TextField id="standard-basic" label="Электронная почта" variant="standard" />
-    <TextField id="standard-basic" label="Город" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.name} id="name" label="Ваше ФИО" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.phone} id="phone" label="Телефон" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.email} id="email" label="Электронная почта" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.city} id="city" label="Город" variant="standard" />
     <br/>
     <br/>
     <h1 style={{fontSize: '1.25rem', whiteSpace: 'nowrap'}}>Водительское удостоверение</h1>
-    <TextField id="standard-basic" label="Серия и номер" variant="standard" />
-    <TextField style={{width: '15ch'}} id="standard-basic" label="Дата выдачи" variant="standard" />
-    <TextField style={{width: '15ch'}} id="standard-basic" label="Дата окончания" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carNumber} id="carNumber" label="Серия и номер" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carDateStart} style={{width: '15ch'}} id="carDateStart" label="Дата выдачи" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carDateEnd} style={{width: '15ch'}} id="carDateEnd" label="Дата окончания" variant="standard" />
     <br/>
     <br/>
     <h1 style={{fontSize: '1.25rem', whiteSpace: 'nowrap'}}>Автомобиль</h1>
-    <TextField id="standard-basic" label="Марка" variant="standard" />
-    <TextField id="standard-basic" label="Модель" variant="standard" />
-    <TextField id="standard-basic" label="Цвет" variant="standard" />
-    <TextField id="standard-basic" label="Гос.номер" variant="standard" />
-    <TextField id="standard-basic" label="Год выпуска" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carBrand} id="carBrand" label="Марка" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carModel} id="carModel" label="Модель" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carColor} id="carColor" label="Цвет" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.carGosNumber} id="carGosNumber" label="Гос.номер" variant="standard" />
+    <TextField onChange={(e) => handle(e)} value={data.CarReleaseDate} id="CarReleaseDate" label="Год выпуска" variant="standard" />
     <br/>
     <br/>
     <Button variant="contained" color="primary" component="span">
@@ -54,7 +96,7 @@ const TextForm = (props) => {
     <br/>
     <FormControlLabel control={<Checkbox />} style={{whiteSpace: 'nowrap'}} label="Согласен с условиями Договора-оферты" />
     <br/>
-    <Button style={{whiteSpace: 'nowrap', width: 'auto'}} variant="contained" color="primary" component="span">
+    <Button onClick={submitData} style={{whiteSpace: 'nowrap', width: 'auto'}} variant="contained" color="primary" component="span">
       Отправить
     </Button>
   </Box>

@@ -23,8 +23,8 @@ const Cards = () => {
               <h2 className='text-2xl font-bold text-center py-8'>Фиксированно с заказа</h2>
               <p className='text-center text-4xl font-bold'>Автовыплаты - без комиссии</p>
               <div className='text-center font-medium'>
-                  <p className='py-2 border-b mx-8 mt-8'>4 рубля при работе в регионе</p>
-                  <p className='py-2 border-b mx-8'>7 рублей при работе в Москве</p>
+                  <p className='py-2 border-b mx-8 mt-8'>8 рублей при работе в регионе 1% вывод</p>
+                  <p className='py-2 border-b mx-8'>11 рублей при работе в Москве 1% вывод</p>
                   <p className='py-2 border-b mx-8'>Идеальный тариф для грузовых и премиальных тарифов</p>
               </div>
               <button className='bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Подключиться</button>

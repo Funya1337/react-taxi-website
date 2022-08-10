@@ -1,4 +1,4 @@
-const Blog = () => {
+const Invest = () => {
   return (
     <div>
     <br/>
@@ -9,10 +9,10 @@ const Blog = () => {
     <br/>
     <br/>
     <h1 className='md:text-4xl sm:text-6xl text-4xl font-bold md:py-6' style={{color: "white", textAlign: "center"}}>
-        Страница блога
+        Страница Инвест
       </h1>
   </div>
   )
 }
 
-export default Blog
+export default Invest

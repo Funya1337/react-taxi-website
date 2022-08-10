@@ -16,7 +16,7 @@ const Navbar = () => {
       <ul className='hidden md:flex'>
         <button className='p-4 font-bold' onClick={() => {window.location = '/'}}>Главная</button>
         <button className='p-4 font-bold' onClick={() => {window.location = '/conditions'}}>Условия</button>
-        <button className='p-4 font-bold' onClick={() => {window.location = '/blog'}}>Блог</button>
+        <button className='p-4 font-bold' onClick={() => {window.location = '/invest'}}>Стать инвестором</button>
         <button className='p-4 font-bold' onClick={() => {window.location = '/about'}}>О нас</button>
         <button className='p-4 font-bold' onClick={() => {window.location = '/question'}}>Вопрос/Ответ</button>
       </ul>
@@ -27,7 +27,7 @@ const Navbar = () => {
       <button onClick={() => {window.location = '/'}}><img src={Logo}/></button>
           <li className='p-4 border-b border-gray-600 font-bold'>Главная</li>
           <li className='p-4 border-b border-gray-600 font-bold'>Условия</li>
-          <li className='p-4 border-b border-gray-600 font-bold'>Блог</li >
+          <li className='p-4 border-b border-gray-600 font-bold'>Стать инвестором</li >
           <li className='p-4 border-b border-gray-600 font-bold'>О нас</li>
           <li className='p-4 border-b border-gray-600 font-bold'>Вопрос/Ответ</li>
       </ul>

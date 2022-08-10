@@ -38,7 +38,7 @@ const Hero = () => {
             loop
           />
         </div>
-        <p className='md:text-2xl text-xl font-bold text-gray-500'>Свяжитесь с нами и мы ответим на все Ваши вопросы!</p>
+        <p className='md:text-2xl text-xl font-bold text-gray-500'>Мы сертифицированный парк, подкючаем Uber, Ситимобил</p>
         <ul className='list'>
         <button onClick={() => changeText("89672220414")} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>{buttonText}</button>
         <button onClick={() => window.location = 'mailto:russo2220414@yandex.ru'} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>Email</button>
