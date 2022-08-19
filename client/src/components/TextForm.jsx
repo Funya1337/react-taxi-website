@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -8,7 +8,16 @@ import axios from 'axios'
 
 const TextForm = () => {
 
-  const url = '/api/data'
+  const url = '/api/request'
+
+  const isFilled = (string) => {
+    if (string.trim().length === 0) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   const [data, setData] = useState({
     name: "",
     phone: "",
@@ -33,24 +42,31 @@ const TextForm = () => {
   }
 
   const submitData = (e) => {
-    axios.post(url, {
-      name: data.name,
-      phone: data.phone,
-      email: data.email,
-      city: data.city,
-      carNumber: data.carNumber,
-      carDateStart: data.carDateStart,
-      carDateEnd: data.carDateEnd,
-      carBrand: data.carBrand,
-      carModel: data.carModel,
-      carColor: data.carColor,
-      carGosNumber: data.carGosNumber,
-      CarReleaseDate: data.CarReleaseDate
-    })
-      .then(res => {
-        console.log(res)
+    if (isFilled(data.name) && isFilled(data.phone) && isFilled(data.email) && isFilled(data.city) && isFilled(data.carNumber) 
+    && isFilled(data.carDateStart) && isFilled(data.carDateEnd) && isFilled(data.carBrand) && isFilled(data.carModel)
+    && isFilled(data.carColor) && isFilled(data.carGosNumber) && isFilled(data.CarReleaseDate)) {
+      axios.post(url, {
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        city: data.city,
+        carNumber: data.carNumber,
+        carDateStart: data.carDateStart,
+        carDateEnd: data.carDateEnd,
+        carBrand: data.carBrand,
+        carModel: data.carModel,
+        carColor: data.carColor,
+        carGosNumber: data.carGosNumber,
+        CarReleaseDate: data.CarReleaseDate
       })
-      .catch(err => console.log(err))
+        .then(res => {
+          console.log(res)
+          alert("Заявка успешно отправлена!")
+        })
+        .catch(err => console.log(err))
+    } else {
+      alert("Заполните все поля")
+    }
   }
 
   return (

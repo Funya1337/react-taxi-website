@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Logo from '../assets/logo1.png'
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -15,9 +16,9 @@ const Navbar = () => {
       {/* <button onClick={() => {window.location = '/'}}><h1 className='w-full text-3xl font-bold text-[#00df9a]'>RUSSO.</h1></button> */}
       <ul className='hidden md:flex'>
         <button className='p-4 font-bold' onClick={() => {window.location = '/'}}>Главная</button>
-        <button className='p-4 font-bold' onClick={() => {window.location = '/conditions'}}>Условия</button>
+        <Link style={{cursor: "pointer"}} to="cards" spy={true} smooth={true} offset={50} duration={500} className='p-4 font-bold'>Условия</Link>
         <button className='p-4 font-bold' onClick={() => {window.location = '/invest'}}>Стать инвестором</button>
-        <button className='p-4 font-bold' onClick={() => {window.location = '/about'}}>О нас</button>
+        <Link style={{cursor: "pointer"}} to="footer" spy={true} smooth={true} offset={50} duration={500} className='p-4 font-bold'>О нас</Link>
         <button className='p-4 font-bold' onClick={() => {window.location = '/question'}}>Вопрос/Ответ</button>
       </ul>
       <div onClick={handleNav} className='block md:hidden'>

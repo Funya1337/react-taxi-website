@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const nodemailer = require("nodemailer")
+require('dotenv').config()
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -10,7 +11,42 @@ app.get("/", (req, res) => {
   res.send("hello world!")
 })
 
-app.post("/api/data", async (req, res) => {
+app.post("/api/invest", async (req, res) => {
+  const output = `
+  <p>Новое предложение об инвистициях</p>
+  <ul>
+      <li>Имя: ${req.body.name}</li>
+      <li>Телефон: ${req.body.phone}</li>
+      <li>Промокод: ${req.body.promo}</li>
+    </ul>
+  `
+  let transporter = nodemailer.createTransport({
+    host: "smtp.mail.ru",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  });
+
+  const msg = {
+    from: `"RussoTaxi 👻" <${process.env.EMAIL_USERNAME}>`,
+    to: "gta7654@gmail.com",
+    subject: "RussoTaxi Contact Info",
+    text: "hello",
+    html: output,
+  }
+
+  let info = await transporter.sendMail(msg);
+
+  console.log("Message sent: %s", info.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  console.log(req.body)
+  res.send(req.body)
+})
+
+app.post("/api/request", async (req, res) => {
 
   const output = `
     <p>Новое подключение</p>
@@ -38,17 +74,17 @@ app.post("/api/data", async (req, res) => {
   `
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: "smtp.mail.ru",
     port: 587,
     secure: false,
     auth: {
-      user: 'zane.marvin41@ethereal.email',
-      pass: "WW5MEKKccJ3tf7rAc5",
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
   const msg = {
-    from: '"RussoTaxi 👻" <zane.marvin41@ethereal.email>',
+    from: `"RussoTaxi 👻" <${process.env.EMAIL_USERNAME}>`,
     to: "gta7654@gmail.com",
     subject: "RussoTaxi Contact Info",
     text: "hello",
