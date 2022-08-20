@@ -3,8 +3,6 @@ import Typed from 'react-typed';
 import DialogWindow from './DialogWindow'
 
 const Hero = () => {
-
-  const [buttonText, setButtonText] = useState('Наш номер')
   const [open, setOpen] = useState(false)
 
   const handleClickToOpen = () => {
@@ -14,11 +12,6 @@ const Hero = () => {
   const handleToClose = () => {
     setOpen(false);
   };
-
-  const changeText = async (text) => {
-    setButtonText(text)
-    await navigator.clipboard.writeText(text);
-  }
 
   return (
     <div className='text-white'>
@@ -40,7 +33,7 @@ const Hero = () => {
         </div>
         <p className='md:text-2xl text-xl font-bold text-gray-500'>Мы сертифицированный парк, подкючаем Uber, Ситимобил</p>
         <ul className='list'>
-        <button onClick={() => changeText("89672220414")} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>{buttonText}</button>
+        <button onClick={() => window.open("tel:+79672220414")} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>Позвонить</button>
         <button onClick={() => window.location = 'mailto:russo2220414@yandex.ru'} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px", marginTop: "auto"}}>Email</button>
       </ul>
       <button onClick={handleClickToOpen} className='bg-[#00df9a] w-[350px] rounded-md font-medium mx-auto py-3 text-black'>Подключиться</button>

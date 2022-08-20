@@ -10,7 +10,7 @@ const Cards = () => {
           <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
               <img className='w-20 mx-auto mt-[-3rem] bg-white' src={Single} alt="/" />
               <h2 className='text-2xl font-bold text-center py-8'>50 рублей в сутки</h2>
-              <p className='text-center text-4xl font-bold'>Автовыплаты - без комиссии</p>
+              <p className='text-center text-4xl font-bold'>Курьер доставка</p>
               <div className='text-center font-medium'>
                   <p className='py-2 border-b mx-8 mt-8'>После выполнения первого заказа</p>
                   <p className='py-2 border-b mx-8'>один раз сутки</p>
@@ -21,7 +21,7 @@ const Cards = () => {
           <div className='w-full shadow-xl bg-gray-100 flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300'>
               <img className='w-20 mx-auto mt-[-3rem] bg-transparent' src={Double} alt="/" />
               <h2 className='text-2xl font-bold text-center py-8'>Фиксированно с заказа</h2>
-              <p className='text-center text-4xl font-bold'>Автовыплаты - без комиссии</p>
+              <p className='text-center text-4xl font-bold'>Грузовой тариф</p>
               <div className='text-center font-medium'>
                   <p className='py-2 border-b mx-8 mt-8'>8 рублей при работе в регионе 1% вывод</p>
                   <p className='py-2 border-b mx-8'>11 рублей при работе в Москве 1% вывод</p>
@@ -32,7 +32,7 @@ const Cards = () => {
           <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
               <img className='w-20 mx-auto mt-[-3rem] bg-white' src={Triple} alt="/" />
               <h2 className='text-2xl font-bold text-center py-8'>3% с заказа</h2>
-              <p className='text-center text-4xl font-bold'>Автовыплаты - без комиссии</p>
+              <p className='text-center text-4xl font-bold'>Путевые листы</p>
               <div className='text-center font-medium'>
                   <p className='py-2 border-b mx-8 mt-8'>Подходит для водителей / курьеров</p>
                   <p className='py-2 border-b mx-8'>в небольших городах, где средняя</p>

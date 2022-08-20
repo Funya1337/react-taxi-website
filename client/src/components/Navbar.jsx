@@ -27,9 +27,9 @@ const Navbar = () => {
       <ul style={{zIndex: 3}} className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
       <button onClick={() => {window.location = '/'}}><img src={Logo}/></button>
           <li onClick={() => {window.location = '/'}} className='p-4 border-b border-gray-600 font-bold' style={{cursor: "pointer"}}>Главная</li>
-          <li className='p-4 border-b border-gray-600 font-bold'>Условия</li>
+          <Link onClick={handleNav} style={{cursor: "pointer"}} to="cards" spy={true} smooth={true} offset={50} duration={500}><li className='p-4 border-b border-gray-600 font-bold'>Условия</li></Link>
           <li onClick={() => {window.location = '/invest'}} style={{cursor: "pointer"}} className='p-4 border-b border-gray-600 font-bold'>Стать инвестором</li >
-          <li className='p-4 border-b border-gray-600 font-bold'>О нас</li>
+          <Link onClick={handleNav} style={{cursor: "pointer"}} to="footer" spy={true} smooth={true} offset={50} duration={500}><li className='p-4 border-b border-gray-600 font-bold'>О нас</li></Link>
           <li onClick={() => {window.location = '/question'}} className='p-4 border-b border-gray-600 font-bold' style={{cursor: "pointer"}}>Вопрос/Ответ</li>
       </ul>
     </div>

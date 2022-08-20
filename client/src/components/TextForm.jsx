@@ -108,9 +108,8 @@ const TextForm = () => {
       Лицензия (не обязательно)
     </Button>
     <br/>
-    <FormControlLabel control={<Checkbox />} style={{whiteSpace: 'nowrap'}} label="Согласен на обработку моих персональных данных" />
-    <br/>
-    <FormControlLabel control={<Checkbox />} style={{whiteSpace: 'nowrap'}} label="Согласен с условиями Договора-оферты" />
+    <FormControlLabel control={<Checkbox />} label="Согласен на обработку моих персональных данных" />
+    <FormControlLabel control={<Checkbox />} label="Согласен с условиями Договора-оферты" />
     <br/>
     <Button onClick={submitData} style={{whiteSpace: 'nowrap', width: 'auto'}} variant="contained" color="primary" component="span">
       Отправить
