@@ -3,6 +3,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
+import { Container } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Question = () => {
@@ -16,6 +17,7 @@ const Question = () => {
       <br/>
       <br/>
       <br/>
+      <Container>
       <p style={{fontSize: 'xx-large'}} className='text-[#00df9a] font-bold p-2'>
           Ответы на все часто задаваемые вопросы
       </p>
@@ -154,6 +156,7 @@ const Question = () => {
         </Typography>
       </AccordionDetails>
     </Accordion>
+    </Container>
   </div>
   )
 }

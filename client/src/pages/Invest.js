@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,Paper, TextField, Button, Typography,Link } from '@material-ui/core'
+import { Grid,Paper, TextField, Button, Typography,Link, Container } from '@material-ui/core'
 import { useState } from 'react';
 import axios from 'axios'
 
@@ -10,6 +10,7 @@ const Invest = () => {
     phone: "",
     promo: ""
   })
+
   const handle = (e) => {
     const newData = {...data}
     console.log(newData)
@@ -17,6 +18,7 @@ const Invest = () => {
     setData(newData)
     console.log(newData)
   }
+  
   const isFilled = (string) => {
     if (string.trim().length === 0) {
       return false
@@ -24,6 +26,19 @@ const Invest = () => {
       return true
     }
   }
+
+  // const useStyles = makeStyles(theme => ({
+  //   root: {
+  //     maxWidth: 345,
+      // [theme.breakpoints.down("md")] : {
+      // maxWidth: 200
+      // }
+  //   },
+  //   media: {
+  //     height: 140
+  //   }
+  // }));
+
   const submitData = (e) => {
     if (isFilled(data.name) && isFilled(data.phone) && isFilled(data.promo)) {
       axios.post(url, {
@@ -40,13 +55,15 @@ const Invest = () => {
       alert("Заполните все поля")
     }
   }
-  const paperStyle={padding :20,height:'35vh',width:600, margin:"20px auto"}
+  
+  const paperStyle={padding :20, margin:"20px auto"}
   const btnstyle={margin:'8px 0'}
+  
   return (
     <div>
       <br/>
       <br/>
-        <Grid>
+        <Container maxWidth="sm">
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
                     <h2 style={{fontWeight: 'bold'}}>Стань инвестором нашего таксопарка</h2>
@@ -59,7 +76,7 @@ const Invest = () => {
                   Нажимая на кнопку, вы принимаете <br/> <Link href="#">условия передачи информации</Link> и <Link href="#">пользовательское соглашение</Link>
                 </Typography>
             </Paper>
-        </Grid>
+        </Container>
   </div>
   )
 }

@@ -24,13 +24,13 @@ const Navbar = () => {
       <div onClick={handleNav} className='block md:hidden'>
           {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}
       </div>
-      <ul className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+      <ul style={{zIndex: 3}} className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
       <button onClick={() => {window.location = '/'}}><img src={Logo}/></button>
-          <li className='p-4 border-b border-gray-600 font-bold'>Главная</li>
+          <li onClick={() => {window.location = '/'}} className='p-4 border-b border-gray-600 font-bold' style={{cursor: "pointer"}}>Главная</li>
           <li className='p-4 border-b border-gray-600 font-bold'>Условия</li>
-          <li className='p-4 border-b border-gray-600 font-bold'>Стать инвестором</li >
+          <li onClick={() => {window.location = '/invest'}} style={{cursor: "pointer"}} className='p-4 border-b border-gray-600 font-bold'>Стать инвестором</li >
           <li className='p-4 border-b border-gray-600 font-bold'>О нас</li>
-          <li className='p-4 border-b border-gray-600 font-bold'>Вопрос/Ответ</li>
+          <li onClick={() => {window.location = '/question'}} className='p-4 border-b border-gray-600 font-bold' style={{cursor: "pointer"}}>Вопрос/Ответ</li>
       </ul>
     </div>
   );

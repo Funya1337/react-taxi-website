@@ -41,7 +41,7 @@ const Hero = () => {
         <p className='md:text-2xl text-xl font-bold text-gray-500'>Мы сертифицированный парк, подкючаем Uber, Ситимобил</p>
         <ul className='list'>
         <button onClick={() => changeText("89672220414")} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>{buttonText}</button>
-        <button onClick={() => window.location = 'mailto:russo2220414@yandex.ru'} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px"}}>Email</button>
+        <button onClick={() => window.location = 'mailto:russo2220414@yandex.ru'} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' style={{marginRight: "20px", marginTop: "auto"}}>Email</button>
       </ul>
       <button onClick={handleClickToOpen} className='bg-[#00df9a] w-[350px] rounded-md font-medium mx-auto py-3 text-black'>Подключиться</button>
       <DialogWindow open={open} handleToClose={handleToClose}/>

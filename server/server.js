@@ -1,14 +1,38 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const nodemailer = require("nodemailer")
+const path = require('path')
 require('dotenv').config()
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'html');
 
-app.get("/", (req, res) => {
-  res.send("hello world!")
+let transporter = nodemailer.createTransport({
+  host: "smtp.mail.ru",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
+const sendMsg = (data) => {
+  const msg = {
+    from: `"RussoTaxi 👻" <${process.env.EMAIL_USERNAME}>`,
+    to: "gta7654@gmail.com",
+    subject: "RussoTaxi Contact Info",
+    text: "hello",
+    html: data,
+  }
+  return msg
+}
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname,'public', 'index.html'));
 })
 
 app.post("/api/invest", async (req, res) => {
@@ -20,25 +44,8 @@ app.post("/api/invest", async (req, res) => {
       <li>Промокод: ${req.body.promo}</li>
     </ul>
   `
-  let transporter = nodemailer.createTransport({
-    host: "smtp.mail.ru",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
 
-  const msg = {
-    from: `"RussoTaxi 👻" <${process.env.EMAIL_USERNAME}>`,
-    to: "gta7654@gmail.com",
-    subject: "RussoTaxi Contact Info",
-    text: "hello",
-    html: output,
-  }
-
-  let info = await transporter.sendMail(msg);
+  let info = await transporter.sendMail(sendMsg(output));
 
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
@@ -73,25 +80,7 @@ app.post("/api/request", async (req, res) => {
     </ul>
   `
 
-  let transporter = nodemailer.createTransport({
-    host: "smtp.mail.ru",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
-
-  const msg = {
-    from: `"RussoTaxi 👻" <${process.env.EMAIL_USERNAME}>`,
-    to: "gta7654@gmail.com",
-    subject: "RussoTaxi Contact Info",
-    text: "hello",
-    html: output,
-  }
-
-  let info = await transporter.sendMail(msg);
+  let info = await transporter.sendMail(sendMsg(output));
 
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
